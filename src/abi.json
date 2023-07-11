@@ -1,0 +1,84 @@
+{
+  "buildInfo": {
+    "rustc": {
+      "version": "1.73.0-nightly",
+      "commitHash": "8ca44ef9caa4049d584fbbce218c219cdca33a2f",
+      "commitDate": "2023-07-10",
+      "channel": "Nightly",
+      "short": "rustc 1.73.0-nightly (8ca44ef9c 2023-07-10)"
+    },
+    "contractCrate": {
+      "name": "mx-esdt-creator",
+      "version": "0.0.0"
+    },
+    "framework": {
+      "name": "multiversx-sc",
+      "version": "0.41.3"
+    }
+  },
+  "name": "CollectionCreator",
+  "constructor": {
+    "inputs": [
+      {
+        "name": "creators",
+        "type": "List<Address>"
+      }
+    ],
+    "outputs": []
+  },
+  "endpoints": [
+    {
+      "name": "collections",
+      "mutability": "readonly",
+      "inputs": [
+        {
+          "name": "identifier",
+          "type": "bytes"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "TokenIdentifier"
+        }
+      ]
+    },
+    {
+      "name": "creators",
+      "mutability": "readonly",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "variadic<Address>",
+          "multi_result": true
+        }
+      ]
+    },
+    {
+      "name": "create_collection",
+      "mutability": "mutable",
+      "payableInTokens": ["EGLD"],
+      "inputs": [
+        {
+          "name": "identifier",
+          "type": "bytes"
+        },
+        {
+          "name": "name",
+          "type": "bytes"
+        },
+        {
+          "name": "ticker",
+          "type": "bytes"
+        },
+        {
+          "name": "owner",
+          "type": "Address"
+        }
+      ],
+      "outputs": []
+    }
+  ],
+  "events": [],
+  "hasCallback": true,
+  "types": {}
+}
