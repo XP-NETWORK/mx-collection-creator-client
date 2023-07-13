@@ -13,7 +13,6 @@ import {
 import { INetworkProvider } from '@multiversx/sdk-network-providers/out/interface';
 import { UserSigner } from '@multiversx/sdk-wallet/out';
 import ABI from './abi.json';
-import { readFileSync } from 'fs';
 import { CONTRACT_WASM } from './wasm.base64';
 
 export interface CollectionCreator {
