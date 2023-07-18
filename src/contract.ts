@@ -18,7 +18,7 @@ import { CONTRACT_WASM } from './wasm.base64';
 export interface CollectionCreator {
   deploy(creators: IAddress[]): Promise<string>;
 
-  create_nft_collection(
+  create_collection(
     identifier: string,
     name: string,
     ticker: string,
@@ -84,9 +84,9 @@ export function CollectionCreatorClient(
 
       return response;
     },
-    async create_nft_collection(identifier, name, ticker, owner) {
+    async create_collection(identifier, name, ticker, owner) {
       const txn = contract.methods
-        .create_nft_collection([
+        .create_collection([
           new BytesValue(Buffer.from(identifier)),
           new BytesValue(Buffer.from(name)),
           new BytesValue(Buffer.from(ticker)),
