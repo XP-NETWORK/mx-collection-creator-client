@@ -72,17 +72,16 @@ export function CollectionCreatorClient(
       ]);
       const query = interaction.check().buildQuery();
       const queryResponse = await provider.queryContract(query);
-      let typedBundle = new ResultsParser().parseQueryResponse(
-        queryResponse,
-        interaction.getEndpoint()
-      );
-      console.log(typedBundle);
 
-      const response = (await provider.queryContract(query)).returnData.join(
-        ','
-      );
+      if (queryResponse.returnData[0] !== '') {
+        let typedBundle = new ResultsParser().parseQueryResponse(
+          queryResponse,
+          interaction.getEndpoint()
+        );
+        return typedBundle.firstValue?.valueOf();
+      }
 
-      return response;
+      throw new Error(`Query failed: No Contract found for this result`);
     },
     async create_collection(identifier, name, ticker, owner) {
       const txn = contract.methods
