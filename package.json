@@ -2,25 +2,14 @@
   "version": "0.1.0",
   "license": "MIT",
   "main": "dist/index.js",
-  "type": "module",
   "typings": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "src"
-  ],
   "engines": {
     "node": ">=10"
   },
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
-    "size": "size-limit",
-    "analyze": "size-limit --why"
+    "build": "tsc",
+    "test": "jest"
   },
-  "peerDependencies": {},
   "husky": {
     "hooks": {
       "pre-commit": "tsdx lint"
@@ -34,17 +23,6 @@
   },
   "name": "mx-esdt-creator-client",
   "author": "imsk17",
-  "module": "dist/mx-esdt-creator-client.esm.js",
-  "size-limit": [
-    {
-      "path": "dist/mx-esdt-creator-client.cjs.production.min.js",
-      "limit": "10 KB"
-    },
-    {
-      "path": "dist/mx-esdt-creator-client.esm.js",
-      "limit": "10 KB"
-    }
-  ],
   "dependencies": {
     "@multiversx/sdk-core": "^12.4.3",
     "@multiversx/sdk-network-providers": "^1.5.0",
